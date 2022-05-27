@@ -9,8 +9,6 @@ function login() {
     id: id.value,
     psword: psword.value,
   };
-  console.log("data", JSON.stringify(data));
-
   fetch("/login", {
     method: "POST",
     headers: {
@@ -19,5 +17,14 @@ function login() {
     body: JSON.stringify(data),
   })
     .then((res) => res.json())
-    .then((res) => console.log("res", res));
+    .then((res) => {
+      if (res.status === "success") {
+        location.href = "/";
+      } else {
+        alert("login failed");
+      }
+    })
+    .catch((err) => {
+      console.error(new Error("login failed"));
+    });
 }
