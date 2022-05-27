@@ -21,8 +21,12 @@ function login() {
       console.log(res);
       if (res.success) {
         console.log(res);
+        location.href = "/";
       } else {
         console.log(res);
       }
+    })
+    .catch((err) => {
+      console.log(err);
     });
 }
