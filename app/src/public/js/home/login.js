@@ -18,13 +18,11 @@ function login() {
   })
     .then((res) => res.json())
     .then((res) => {
-      if (res.status === "success") {
-        location.href = "/";
+      console.log(res);
+      if (res.success) {
+        console.log(res);
       } else {
-        alert(`아이디 혹은 비밀번호가 잘못되었습니다.`);
+        console.log(res);
       }
-    })
-    .catch((err) => {
-      console.error(new Error("login failed"));
     });
 }
