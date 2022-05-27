@@ -1,3 +1,5 @@
+const UserStorage = require("../../models/UserStorage");
+
 const output = {
   hello: (req, res) => {
     res.render("home/index");
@@ -7,26 +9,20 @@ const output = {
   },
 };
 
-const users = {
-  id: ["aaa", "bbb", "ccc"],
-  psword: ["111", "222", "333"],
-};
-
 const process = {
   login: (req, res) => {
     const id = req.body.id;
     const psword = req.body.psword;
+    const users = UserStorage.getUsers("id", "psword", "name");
+
+    const response = {};
     const index = users.id.indexOf(id);
-    if (users.id[index] === id && users.psword[index] === psword) {
-      return res.json({
-        status: "success",
-        message: "login success",
-      });
+    if (users.psword[index] === psword) {
+      response.status = "success";
+      return res.json(response);
     }
-    return res.json({
-      status: "false",
-      message: "login failed",
-    });
+    response.status = "fail";
+    return res.json(response);
   },
 };
 

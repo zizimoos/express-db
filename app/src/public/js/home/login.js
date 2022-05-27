@@ -21,7 +21,7 @@ function login() {
       if (res.status === "success") {
         location.href = "/";
       } else {
-        alert("login failed");
+        alert(`아이디 혹은 비밀번호가 잘못되었습니다.`);
       }
     })
     .catch((err) => {
