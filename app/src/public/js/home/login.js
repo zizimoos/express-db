@@ -27,6 +27,6 @@ function login() {
       }
     })
     .catch((err) => {
-      console.log(err);
+      console.log("로그인 실패");
     });
 }
