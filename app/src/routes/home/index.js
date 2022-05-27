@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { hello, login } = require("./home.ctrl");
+const { output, process } = require("./home.ctrl");
 
-router.get("/", hello);
-router.get("/login", login);
+router.get("/", output.hello);
+router.get("/login", output.login);
+
+router.post("/login", process.login);
 
 module.exports = router;

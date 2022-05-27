@@ -2,20 +2,22 @@ const id = document.getElementById("id");
 const psword = document.getElementById("psword");
 const loginBtn = document.querySelector("button");
 
+loginBtn.addEventListener("click", login);
+
 function login() {
-  const idValue = id.value;
-  const pswordValue = psword.value;
-  const req = {
-    id: idValue,
-    psword: pswordValue,
+  const data = {
+    id: id.value,
+    psword: psword.value,
   };
+  console.log("data", JSON.stringify(data));
 
   fetch("/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(req),
-  });
+    body: JSON.stringify(data),
+  })
+    .then((res) => res.json())
+    .then((res) => console.log("res", res));
 }
-loginBtn.addEventListener("click", login);
