@@ -8,5 +8,6 @@ app.set("view engine", "ejs");
 
 app.use("/", ROUTE);
 app.use(express.static(`${__dirname}/src/public`));
+app.use(express.json());
 
 module.exports = app;

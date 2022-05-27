@@ -3,6 +3,7 @@ const hello = (req, res) => {
 };
 
 const login = (req, res) => {
+  console.log(req.body);
   res.render(`home/login`);
 };
 
