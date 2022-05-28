@@ -1,0 +1,6 @@
+{
+  "id": ["aaa", "bbb", "ccc"],
+  "psword": ["111", "222", "333"],
+  "name": ["김덕수", "강인구", "김성환"],
+  "email": ["aaa@aamail.com", "bbb@bbmail.com", "ccc@ccmail.com"]
+}

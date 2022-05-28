@@ -4,8 +4,8 @@ class User {
   constructor(body) {
     this.body = body;
   }
-  login() {
-    const { id, psword } = UserStorage.getUserInfo(this.body.id);
+  async login() {
+    const { id, psword } = await UserStorage.getUserInfo(this.body.id);
     if (id) {
       if (id === this.body.id && psword === this.body.psword) {
         return {
@@ -23,8 +23,8 @@ class User {
       message: "아이디가 존재하지 않습니다.",
     };
   }
-  register() {
-    const { id, email } = UserStorage.getUserInfo(this.body.id);
+  async register() {
+    const { id, email } = await UserStorage.getUserInfo(this.body.id);
     if (id) {
       return {
         success: false,
