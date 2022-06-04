@@ -9,13 +9,7 @@ registerBtn.addEventListener("click", register);
 
 function register(e) {
   e.preventDefault();
-  if (
-    !id.value ||
-    !userName.value ||
-    !psword.value ||
-    !confirmPsword.value ||
-    !email.value
-  ) {
+  if (!id.value || !userName.value || !psword.value || !confirmPsword.value) {
     alert("모든 항목을 입력해주세요.");
     return;
   }
@@ -27,7 +21,6 @@ function register(e) {
     id: id.value,
     name: userName.value,
     psword: psword.value,
-    email: email.value,
   };
   console.log(data);
   fetch("/register", {

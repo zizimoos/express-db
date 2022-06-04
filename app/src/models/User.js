@@ -5,23 +5,31 @@ class User {
     this.body = body;
   }
   async login() {
-    const { id, psword } = await UserStorage.getUserInfo(this.body.id);
-    if (id) {
-      if (id === this.body.id && psword === this.body.psword) {
+    try {
+      const { id, psword } = await UserStorage.getUserInfo(this.body.id);
+      console.log(id, psword);
+      if (id) {
+        if (id === this.body.id && psword === this.body.psword) {
+          return {
+            success: true,
+            message: "로그인 성공",
+          };
+        }
         return {
-          success: true,
-          message: "로그인 성공",
+          success: false,
+          message: "비밀번호가 잘못되었습니다.",
         };
       }
       return {
         success: false,
-        message: "비밀번호가 잘못되었습니다.",
+        message: "아이디가 존재하지 않습니다.",
+      };
+    } catch (err) {
+      return {
+        success: false,
+        message: err.message,
       };
     }
-    return {
-      success: false,
-      message: "아이디가 존재하지 않습니다.",
-    };
   }
   async register() {
     try {
