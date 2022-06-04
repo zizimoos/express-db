@@ -1,4 +1,5 @@
 const mysql = require("mysql");
+const logger = require("./logger");
 
 const db = mysql.createConnection({
   host: process.env.DB_HOST,
@@ -11,7 +12,7 @@ db.connect((err) => {
   if (err) {
     console.log(err);
   } else {
-    console.log(" 🟡  Connected to DB".yellow);
+    logger.info(" 🟡  Connected to DB".yellow);
   }
 });
 
