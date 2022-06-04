@@ -12,7 +12,6 @@ class User {
         if (id === this.body.id && psword === this.body.psword) {
           return {
             success: true,
-            message: "로그인 성공",
           };
         }
         return {
@@ -27,7 +26,7 @@ class User {
     } catch (err) {
       return {
         success: false,
-        message: err.message,
+        err,
       };
     }
   }
@@ -36,10 +35,7 @@ class User {
       const response = await UserStorage.addUser(this.body);
       return response;
     } catch (err) {
-      return {
-        success: false,
-        message: err.message,
-      };
+      return { success: false, err };
     }
   }
 }

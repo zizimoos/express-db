@@ -5,6 +5,13 @@ const loginBtn = document.querySelector("button");
 loginBtn.addEventListener("click", login);
 
 function login() {
+  if (!id.value || !psword.value) {
+    alert("모든 항목을 입력해주세요.");
+  }
+  if (!psword.value) {
+    alert("비밀번호를 입력해주세요.");
+    return;
+  }
   const data = {
     id: id.value,
     psword: psword.value,
