@@ -30,7 +30,7 @@ const process = {
     const user = new User(req.body);
     const response = await user.register();
     logger.info(
-      ` POST /register 200 Response:"success:${response.success}, message:${response.message}" "로그인 성공"`
+      ` POST /register 200 Response:"success:${response.success}, message:${response.message}" "회원가입 성공"`
         .yellow
     );
     return res.json(response);
